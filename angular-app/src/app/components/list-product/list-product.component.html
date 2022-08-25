@@ -1,0 +1,30 @@
+<div class="col-md-6">
+  <h4>Products List</h4>
+  <div *ngIf="records" class="list row">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Slug</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.slug}}</td>
+        <td>{{product.description}}</td>
+        <td> <a class="btn btn-primary" routerLink="/product/{{ product.id }}"> Edit </a> </td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+  <div *ngIf="!records">
+    <h4>No records found!</h4>
+  </div>
+</div>

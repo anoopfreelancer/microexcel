@@ -1,0 +1,64 @@
+  <form #f="ngForm" class="validation" (ngSubmit)="onSubmitform(f)">
+    <div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="product.name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input
+            class="form-control"
+            id="category"
+            required
+            [(ngModel)]="product.category"
+            name="category"
+          />
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input 
+                type="file" 
+                name="image" 
+                class="form-control" 
+                (change)="fileEvent($event)"
+                required
+            />
+          </div>
+
+        <div class="form-group">
+          <label for="slug">Slug</label>
+          <input
+            class="form-control"
+            id="slug"
+            required
+            [(ngModel)]="product.slug"
+            name="slug"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="product.description"
+            name="description"
+          />
+        </div><br><br>
+        <button class="btn btn-success">Submit</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>You added product successfully!</h4>
+      </div>
+    </div>
+  </div>
+</form>
